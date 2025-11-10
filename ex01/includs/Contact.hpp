@@ -6,7 +6,7 @@
 /*   By: slamhaou <slamhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 17:10:58 by slamhaou          #+#    #+#             */
-/*   Updated: 2025/11/08 17:24:13 by slamhaou         ###   ########.fr       */
+/*   Updated: 2025/11/10 10:57:56 by slamhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #define CONTACT_hpp
 #include <string>
 #include <iostream>
+#include <cctype> 
 
 class Contact
 {
@@ -22,6 +23,7 @@ class Contact
 	std::string l_name;
 	std::string n_name;
 	std::string phon_num;
+	std::string darkest_secret;
 	public:
 	void set_privet_val(std::string str, char t);
 	std::string get_valu_privet(char typ);
