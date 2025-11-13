@@ -11,40 +11,46 @@
 /* ************************************************************************** */
 
 
-#include "Contact.hpp"
+#include "../includs/Contact.hpp"
 
-void Contact::set_privet_val(std::string str, char t)
+void	Contact::SetFirstName(std::string firstname) 
 {
-	if (t == 'f')
-		f_name = str;
-	else if (t == 'l')
-		l_name = str;
-	else if (t == 'n')
-		n_name = str;
-	else if (t == 'p')
-		phon_num = str;
-	else if (t == 'd')
-		phon_num = str;
+	FirstName = firstname;
 }
-std::string Contact::get_valu_privet(char type)
+void	Contact::SetLastName(std::string lastname) 
 {
-	if (type == 'f')
-		return (f_name);
-	else if (type == 'l')
-		return (l_name);
-	else if (type == 'n')
-		return (n_name);
-	else if (type == 'p')
-		return (phon_num);
-	else if (type == 'd')
-		return (darkest_secret);
-	return (NULL);
+	LastName = lastname;
 }
-int main()
+void	Contact::SetNicName(std::string nicname) 
 {
-	Contact c;
-	char s[] = "coco";
-	c.set_privet_val(s, 'f');
-	std::cout<< c.get_valu_privet('f');
+	NickName = nicname;
+}
+void	Contact::SetPoneNumber(std::string phonenumber) 
+{
+	PhoneNumber = phonenumber;
+}
+void	Contact::SetDarkestSecret(std::string darkestsecret) 
+{
+	DarkestSecret = darkestsecret;
+}
+std::string	Contact::GetFirstName() 
+{
+	return FirstName;
+}
+std::string	Contact::GetLastName() 
+{
+	return LastName;
+}
+std::string	Contact::GetNicName() 
+{
+	return NickName;
+}
+std::string	Contact::GetPhoneNumber() 
+{
+	return PhoneNumber;
+}
+std::string	Contact::GetDarkestSecret() 
+{
+	return DarkestSecret;
 }
 

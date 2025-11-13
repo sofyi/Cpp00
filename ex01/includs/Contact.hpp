@@ -14,18 +14,25 @@
 #define CONTACT_hpp
 #include <string>
 #include <iostream>
-#include <cctype> 
 
 class Contact
 {
 	private:
-	std::string f_name;
-	std::string l_name;
-	std::string n_name;
-	std::string phon_num;
-	std::string darkest_secret;
+		std::string FirstName;
+		std::string LastName;
+		std::string NickName;
+		std::string PhoneNumber;
+		std::string DarkestSecret;
 	public:
-	void set_privet_val(std::string str, char t);
-	std::string get_valu_privet(char typ);
+		void	SetFirstName(std::string firstname);
+		void	SetLastName(std::string lastname);
+		void	SetNicName(std::string nicname);
+		void	SetPoneNumber(std::string phonenumber);
+		void	SetDarkestSecret(std::string darkestsecret);
+		std::string	GetFirstName();
+		std::string	GetLastName();
+		std::string	GetNicName();
+		std::string	GetPhoneNumber();
+		std::string	GetDarkestSecret();
 };
 #endif

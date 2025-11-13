@@ -13,12 +13,16 @@
 #ifndef PHONEBOOK_HPP
 #define PHONEBOOK_HPP
 #include "Contact.hpp"
+
 class PhoneBook
 {
 	private:
-		Contact tab_contac[8];
-		int	size_cont_now;
+		Contact Contacs[8];
+		int	IndexContact;
 	public:
-	void	add_contact(Contact noda);
+		PhoneBook();
+		void	AddContact();
+		// void	SerchContact();
+		// void	PrintData();	
 };
 #endif

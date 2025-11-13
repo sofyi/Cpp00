@@ -10,24 +10,66 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "PhoneBook.hpp"
-
-void PhoneBook::add_contact(Contact nod)
+#include "../includs/PhoneBook.hpp"
+#include <iomanip>
+PhoneBook::PhoneBook()
 {
-	static int i;
-
-	if (i == 8)
-		i = 0;
-	tab_contac[i++] = nod;
+	IndexContact = -1;
 }
-void PhoneBook::print_contact(void)
+
+int checkData(std::string input)
 {
-	int	i;
-	PhoneBook cc;
-	i = 0;
-	while (i < 1)
+	std::string::const_iterator c;
+
+	if (input.empty())
+		return (std::cout<< "input empty" << std::endl,1);
+	c = input.begin();
+	while (c != input.end())
 	{
-		std::cout<< cc.tab_contac[i] <<std::endl;
+		if (std::isspace(static_cast<unsigned char>(*c)))
+		{
+			std::cout<< "erorr name";
+			return (1);
+		}
+		c++;	
+	}
+	return (0);
+}
+int	Check(std::string input)
+{
+	unsigned int i;
+	std::string str;
+
+	
+	i = 0;
+	while (i < input.size())
+	{
+		if (input[i] > 32)
+			str += input.data()[i];
 		i++;
 	}
+	if (str.empty())
+		return (1);
+	return (0);
 }
+void PhoneBook::AddContact()
+{
+	std::string input;
+
+	while (true)
+	{
+		std::cout<<"Enter First name :";
+		if (!std::getline(std::cin, input))
+			break;
+		if (checkData(input))
+			continue;
+	}
+}
+// void	PhoneBook::SerchContact()
+// {
+
+// }
+// void	PhoneBook::PrintData()
+// {
+
+// }	
