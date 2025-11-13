@@ -6,7 +6,7 @@
 /*   By: slamhaou <slamhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 19:18:29 by slamhaou          #+#    #+#             */
-/*   Updated: 2025/11/10 11:08:37 by slamhaou         ###   ########.fr       */
+/*   Updated: 2025/11/13 15:14:47 by slamhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class PhoneBook
 	public:
 		PhoneBook();
 		void	AddContact();
-		// void	SerchContact();
-		// void	PrintData();	
+		void	SerchContact();
+		void	PrintData();	
 };
 #endif
