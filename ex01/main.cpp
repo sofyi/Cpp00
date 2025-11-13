@@ -6,7 +6,7 @@
 /*   By: slamhaou <slamhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 17:44:54 by slamhaou          #+#    #+#             */
-/*   Updated: 2025/11/13 20:13:26 by slamhaou         ###   ########.fr       */
+/*   Updated: 2025/11/13 20:18:44 by slamhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int main(int ac, char **av)
 			break;
 		if (!input.compare("ADD"))
 			phonebook.AddContact();
-		else if (!input.compare("SERCH"))
+		else if (!input.compare("SEARCH"))
 		{
 			phonebook.PrintData();
 		 	phonebook.SerchContact();
