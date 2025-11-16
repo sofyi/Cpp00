@@ -6,7 +6,7 @@
 /*   By: slamhaou <slamhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 18:24:24 by slamhaou          #+#    #+#             */
-/*   Updated: 2025/11/10 11:07:53 by slamhaou         ###   ########.fr       */
+/*   Updated: 2025/11/15 08:45:31 by slamhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,23 +33,23 @@ void	Contact::SetDarkestSecret(std::string darkestsecret)
 {
 	DarkestSecret = darkestsecret;
 }
-std::string	Contact::GetFirstName() 
+std::string	Contact::GetFirstName() const 
 {
 	return FirstName;
 }
-std::string	Contact::GetLastName() 
+std::string	Contact::GetLastName() const
 {
 	return LastName;
 }
-std::string	Contact::GetNicName() 
+std::string	Contact::GetNicName() const
 {
 	return NickName;
 }
-std::string	Contact::GetPhoneNumber() 
+std::string	Contact::GetPhoneNumber() const
 {
 	return PhoneNumber;
 }
-std::string	Contact::GetDarkestSecret() 
+std::string	Contact::GetDarkestSecret() const
 {
 	return DarkestSecret;
 }

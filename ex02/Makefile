@@ -1,13 +1,13 @@
-NAME = PhoneBook
+NAME = TST
 FLAGS = -Wall -Wextra -Werror -std=c++98
-SRC = main.cpp ./src/Contact.cpp ./src/PhoneBook.cpp
+SRC = tests.cpp Account.cpp
 OBJ = $(SRC:.cpp=.o)
 
 all : $(NAME)
 
 $(NAME) : $(OBJ)
 	c++  $(OBJ) -o $@ 
-%.o : %.cpp ./includs/Contact.hpp ./includs/PhoneBook.hpp
+%.o : %.cpp Account.hpp
 	c++ $(FLAGS) -c $< -o $@
 clean:
 	rm -f $(OBJ)

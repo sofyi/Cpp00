@@ -6,7 +6,7 @@
 /*   By: slamhaou <slamhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 17:10:58 by slamhaou          #+#    #+#             */
-/*   Updated: 2025/11/10 10:57:56 by slamhaou         ###   ########.fr       */
+/*   Updated: 2025/11/15 08:46:20 by slamhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,10 @@ class Contact
 		void	SetNicName(std::string nicname);
 		void	SetPoneNumber(std::string phonenumber);
 		void	SetDarkestSecret(std::string darkestsecret);
-		std::string	GetFirstName();
-		std::string	GetLastName();
-		std::string	GetNicName();
-		std::string	GetPhoneNumber();
-		std::string	GetDarkestSecret();
+		std::string	GetFirstName() const;
+		std::string	GetLastName() const;
+		std::string	GetNicName() const;
+		std::string	GetPhoneNumber() const;
+		std::string	GetDarkestSecret() const;
 };
 #endif
