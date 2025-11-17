@@ -14,6 +14,7 @@
 #define CONTACT_hpp
 #include <string>
 #include <iostream>
+#include <cstdlib>
 
 class Contact
 {

@@ -56,7 +56,6 @@ void PhoneBook::AddContact()
 	std::string input;
 
 	IndexContact++;
-	std::cout<< "this is index : " << IndexContact << std::endl;
 	input = GetData("Enter First Name :");
 	if (!std::cin.eof())
 		Contacs[IndexContact % 8].SetFirstName(input);
