@@ -6,13 +6,11 @@
 /*   By: slamhaou <slamhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/15 10:47:12 by slamhaou          #+#    #+#             */
-/*   Updated: 2025/11/16 10:28:23 by slamhaou         ###   ########.fr       */
+/*   Updated: 2025/11/17 09:46:17 by slamhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Account.hpp"
-#include <chrono>
-#include <ctime>
 
  int	Account::_nbAccounts = 0;
  int	Account::_totalAmount = 0;
@@ -35,30 +33,79 @@ int	Account::getNbWithdrawals( void )
 {
 	return _totalNbWithdrawals;
 }
-// void	displayAccountsInfos( void )
-// {
-		
-// }
+
 void GetExactTime(void)
 {
-	std::time_t a;
-	std::tm  *t;
-	std::time(&a);
-	t = std::localtime(&a);
-	std::cout<<t->tm_mday;
-	exit (0);
+	time_t	tim;
+	std::time(&tim);
+	tm *tt = std::localtime(&tim);
+	std::cout<<"[";
+	std::cout<< tt->tm_year + 1900 << tt->tm_mon + 1<< tt->tm_mday;
+	std::cout<< "_"<< tt->tm_hour  << tt->tm_min << tt->tm_sec;
+	std::cout<<"]";
+}
+void	Account::displayAccountsInfos( void )
+{
+	// accounts:8;total:21524;deposits:8;withdrawals:0
+	GetExactTime();
+	std::cout<<" accounts:" << _nbAccounts << ";total:"<<_totalAmount;
+	std::cout<<";deposits:"<<_totalNbDeposits <<";withdrawals:"<< _totalNbWithdrawals;
+	std::cout<<std::endl;
+}
+
+void Account::displayStatus( void ) const
+{
+	// index:0;amount:42;deposits:0;withdrawals:0
+	GetExactTime();
+	std::cout<<" index:"<<_accountIndex<<";amount:"<<_amount;
+	std::cout<<";deposits:"<<_nbDeposits<<";withdrawals:"<<_nbWithdrawals;
+	std::cout<<std::endl;
+
+}
+void Account::makeDeposit( int deposit )
+{
+	_nbDeposits++;
+	_totalNbDeposits++;
+	_totalAmount += deposit;
+	//index:0;p_amount:42;deposit:5;amount:47;nb_deposits:1
+	GetExactTime();
+	std::cout<<" index:"<<_accountIndex<<";p_amount:"<<_amount;
+	_amount += deposit;
+	std::cout<<";deposit:"<<deposit<<";amount:"<< _amount<< ";nb_deposits:"<<_nbDeposits<<std::endl;
+}
+// int	 Account::checkAmount( void ) const
+// {
+// }
+bool Account::makeWithdrawal( int withdrawal )
+{
+	//index:6;p_amount:763;withdrawal:657;amount:106;nb_withdrawals:1
+	GetExactTime();
+	if (_amount < withdrawal)
+	{
+		std::cout<<" index:"<<_accountIndex<<";p_amount:"<<_amount<<";withdrawal:"<<"refused"<<std::endl;
+		return false;
+	}
+	_nbWithdrawals++;
+	_totalNbWithdrawals++;
+	std::cout<<" index:"<<_accountIndex<<";p_amount:"<<_amount<<";withdrawal:"<<withdrawal;
+	_amount -= withdrawal;
+	_totalAmount -=withdrawal;
+	std::cout<<";amount:"<< _amount<<";nb_withdrawals:"<<_nbWithdrawals<<std::endl;
+	return true;
 }
 Account::~Account( void )
 {
 	GetExactTime();
-	std::cout<< "index:"<<_accountIndex<<";amount:"<<_amount<<";closed"<<std::endl;
+	std::cout<< " index:"<<_accountIndex<<";amount:"<<_amount<<";closed"<<std::endl;
 }
+
 Account::Account(int initial_deposit)
 {
 	_amount = initial_deposit;
-	_accountIndex = 0;
 	_nbDeposits = 0;
 	_nbWithdrawals = 0;
+	_accountIndex = _nbAccounts;
+	_totalAmount += _amount;
 	GetExactTime();
-	std::cout<< "index:"<< _nbAccounts++ <<";amount:" << _amount<<";created"<< std::endl;
+	std::cout<< " index:"<< _nbAccounts++ <<";amount:" << _amount<<";created"<< std::endl;
 }
