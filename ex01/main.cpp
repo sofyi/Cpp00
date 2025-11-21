@@ -6,7 +6,7 @@
 /*   By: slamhaou <slamhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 17:44:54 by slamhaou          #+#    #+#             */
-/*   Updated: 2025/11/13 20:18:44 by slamhaou         ###   ########.fr       */
+/*   Updated: 2025/11/21 12:05:01 by slamhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,7 @@ int main(int ac, char **av)
 		return (std::cout<< "Just one parameter.....", 1);
 	while(true)
 	{
-		if (std::cin.eof())
-			break;
-		std::cout<< "Enter --> : ADD, SERCH, EXIT"<< std::endl<< "-->";
+		std::cout<< "Enter --> : ADD, SEARCH, EXIT"<< std::endl<< "-->";
 		if (!std::getline(std::cin, input) || !input.compare("EXIT"))
 			break;
 		if (!input.compare("ADD"))
@@ -34,5 +32,7 @@ int main(int ac, char **av)
 			phonebook.PrintData();
 		 	phonebook.SerchContact();
 		}
+		if (std::cin.eof())
+			break;
 	}
 }

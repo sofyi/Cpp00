@@ -6,7 +6,7 @@
 /*   By: slamhaou <slamhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 17:10:58 by slamhaou          #+#    #+#             */
-/*   Updated: 2025/11/15 08:46:20 by slamhaou         ###   ########.fr       */
+/*   Updated: 2025/11/20 14:06:18 by slamhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,10 @@
 #define CONTACT_hpp
 #include <string>
 #include <iostream>
+#include <algorithm>
 #include <cstdlib>
+#include <iomanip>
+#include <cctype> 
 
 class Contact
 {

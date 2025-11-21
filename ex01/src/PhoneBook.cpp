@@ -6,31 +6,31 @@
 /*   By: slamhaou <slamhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 19:17:50 by slamhaou          #+#    #+#             */
-/*   Updated: 2025/11/14 10:02:54 by slamhaou         ###   ########.fr       */
+/*   Updated: 2025/11/20 15:39:59 by slamhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includs/PhoneBook.hpp"
-#include <iomanip>
+
 
 PhoneBook::PhoneBook()
 {
 	IndexContact = -1;
 }
 
-int checkData(std::string input)
+int checkData(std::string *input)
 {
-	std::string::const_iterator c;
+	size_t First;
+	size_t Last;
+	
+	if ((*input).empty())
+		return (std::cout<< "input is empty" << std::endl, 1);
+	First = (*input).find_first_not_of(" \n\t");
+	Last = (*input).find_last_not_of(" \n\t");
 
-	if (input.empty())
-		return (std::cout<< " << input is empty >>" << std::endl, 1);
-	c = input.begin();
-	while (c != input.end())
-	{
-		if (std::isspace(static_cast<unsigned char>(*c)))
-			return (std::cout<< "❌ erorr syntax ❌"<<std::endl, 1);
-		c++;	
-	}
+	if (First == (*input).npos)
+		return (std::cout<<"❌ error syntax ❌"<<std::endl, 1);
+	*input = (*input).substr(First, (Last - First + 1));
 	return (0);
 }
 
@@ -45,7 +45,7 @@ std::string	GetData(std::string msg)
 		std::cout<< msg;
 		if (!std::getline(std::cin, input))
 			break;
-		if (checkData(input))
+		if (checkData(&input))
 			continue;
 		break;
 	}
@@ -124,6 +124,7 @@ void	PhoneBook::SerchContact()
 		std::cout<< "🔘 Last Name : " << Contacs[i - 1].GetLastName()<<std::endl;
 		std::cout<< "🔘 Nic Name : " << Contacs[i - 1].GetNicName()<<std::endl;
 		std::cout<< "🔘 Phone Number : " << Contacs[i - 1].GetPhoneNumber() <<std::endl;
+		std::cout<< "🔘 Darke Secret : " << Contacs[i - 1].GetDarkestSecret() <<std::endl;
 	}
 
 }

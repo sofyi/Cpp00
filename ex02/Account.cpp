@@ -6,7 +6,7 @@
 /*   By: slamhaou <slamhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/15 10:47:12 by slamhaou          #+#    #+#             */
-/*   Updated: 2025/11/17 09:46:17 by slamhaou         ###   ########.fr       */
+/*   Updated: 2025/11/21 10:53:11 by slamhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +37,12 @@ int	Account::getNbWithdrawals( void )
 void GetExactTime(void)
 {
 	time_t	tim;
+    char buffer[19];
+
 	std::time(&tim);
 	tm *tt = std::localtime(&tim);
-	std::cout<<"[";
-	std::cout<< tt->tm_year + 1900 << tt->tm_mon + 1<< tt->tm_mday;
-	std::cout<< "_"<< tt->tm_hour  << tt->tm_min << tt->tm_sec;
-	std::cout<<"]";
+    strftime(buffer, sizeof(buffer), "%Y%m%d_%H%M%S", tt);
+    std::cout << "[" << buffer << "]" ;
 }
 
 void	Account::displayAccountsInfos( void )
