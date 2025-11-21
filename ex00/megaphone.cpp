@@ -6,7 +6,7 @@
 /*   By: slamhaou <slamhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 15:16:24 by slamhaou          #+#    #+#             */
-/*   Updated: 2025/11/21 12:30:26 by slamhaou         ###   ########.fr       */
+/*   Updated: 2025/11/21 13:39:29 by slamhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,8 @@ int main(int ac, char **av)
 
 	i = 1;
 	if (ac < 2)
-		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *";
+		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *"<< std::endl;
 	while (i < ac)
 		to_uper(av[i++]);
+	std::cout<< std::endl;
 }
