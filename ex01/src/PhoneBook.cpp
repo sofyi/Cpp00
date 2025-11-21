@@ -6,12 +6,11 @@
 /*   By: slamhaou <slamhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 19:17:50 by slamhaou          #+#    #+#             */
-/*   Updated: 2025/11/20 15:39:59 by slamhaou         ###   ########.fr       */
+/*   Updated: 2025/11/21 13:25:54 by slamhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includs/PhoneBook.hpp"
-
 
 PhoneBook::PhoneBook()
 {
@@ -22,7 +21,7 @@ int checkData(std::string *input)
 {
 	size_t First;
 	size_t Last;
-	
+
 	if ((*input).empty())
 		return (std::cout<< "input is empty" << std::endl, 1);
 	First = (*input).find_first_not_of(" \n\t");
@@ -39,7 +38,7 @@ std::string	GetData(std::string msg)
 	std::string input;
 	
 	if (std::cin.eof())
-		return (input);
+		return ("");
 	while (true)
 	{
 		std::cout<< msg;
@@ -57,10 +56,10 @@ void PhoneBook::AddContact()
 
 	IndexContact++;
 	input = GetData("Enter First Name :");
-	if (!std::cin.eof())
+	if (!input.empty())
 		Contacs[IndexContact % 8].SetFirstName(input);
 	input = GetData("Enter Last Name :");
-	if (!std::cin.eof())
+	if (!input.empty())
 		Contacs[IndexContact % 8].SetLastName(input);
 	input = GetData("Enter Nick Name :");
 	if (!std::cin.eof())
@@ -85,6 +84,8 @@ void	PhoneBook::PrintData()
 	int i;
 
 	i = 0;
+	if (IndexContact < 0)
+		return ;
 	std::cout<< "---------------------------------------------"<<std::endl;
 	std::cout<< "|     index|First Name| Last Name| Nick Name|"<<std::endl;
 	std::cout<< "---------------------------------------------"<<std::endl;
@@ -105,7 +106,7 @@ void	PhoneBook::SerchContact()
 	int i;
 	
 	if (IndexContact < 0)
-		std::cout << "❌ <--- empty list ---> ❌" << std::endl;
+		std::cout << "❌ <----------- empty list --------> ❌" << std::endl;
 	else
 	{
 		while (1)
@@ -114,7 +115,6 @@ void	PhoneBook::SerchContact()
 			if (!std::getline(std::cin, input))
 				return ;
 			i = std::atoi(input.data());
-			// std::cout<< "this is i:" << i - 1 << "and this is inde : " << IndexContact << std::endl;
 			if (i - 1 > IndexContact || i - 1 < 0) //my arr start from 0 and the index printed start from 1		
 				std::cout<< "❌**** Wrong Index *****❌" << std::endl;
 			else 
