@@ -6,21 +6,21 @@
 /*   By: slamhaou <slamhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 15:16:24 by slamhaou          #+#    #+#             */
-/*   Updated: 2025/11/15 14:17:04 by slamhaou         ###   ########.fr       */
+/*   Updated: 2025/11/21 12:30:26 by slamhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 
-void	to_uper(char *str)
+void	to_uper(std::string str)
 {
-	int i;
+	std::string::iterator c;
 
-	i = 0;
-	while (str[i])
+	c = str.begin();
+	while (c != str.end())
 	{
-		str[i] = std::toupper(str[i]);
-		i++;
+		c.operator*() = std::toupper(*c);
+		c++;
 	}
 	std::cout << str;
 }
