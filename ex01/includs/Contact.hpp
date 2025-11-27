@@ -6,18 +6,14 @@
 /*   By: slamhaou <slamhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 17:10:58 by slamhaou          #+#    #+#             */
-/*   Updated: 2025/11/21 13:31:10 by slamhaou         ###   ########.fr       */
+/*   Updated: 2025/11/22 18:35:39 by slamhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CONTACT_hpp
 #define CONTACT_hpp
-#include <string>
 #include <iostream>
-#include <algorithm>
-#include <cstdlib>
 #include <iomanip>
-#include <cctype> 
 
 class Contact
 {

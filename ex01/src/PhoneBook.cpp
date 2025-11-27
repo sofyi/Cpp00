@@ -6,7 +6,7 @@
 /*   By: slamhaou <slamhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 19:17:50 by slamhaou          #+#    #+#             */
-/*   Updated: 2025/11/21 15:18:31 by slamhaou         ###   ########.fr       */
+/*   Updated: 2025/11/22 18:24:05 by slamhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,24 @@ PhoneBook::PhoneBook()
 	IndexContact = -1;
 }
 
-int checkData(std::string *input)
+int checkData(std::string *input, bool is_phon)
 {
 	size_t First;
 	size_t Last;
 
 	if ((*input).empty())
 		return (std::cout<< "input is empty" << std::endl, 1);
+	if (is_phon)
+	{
+		First = (*input).find_first_not_of("0123456789");
+		Last = (*input).find_last_not_of("023456789");
+		if (First != (*input).npos)
+			return (std::cout<<"❌ error just number ❌"<<std::endl, 1);
+		else if ((*input).size() > 12)
+			return (std::cout<<"❌ Error: You entered more than 12 numbers ❌"<<std::endl, 1);
+	}
 	First = (*input).find_first_not_of(" \n\t");
 	Last = (*input).find_last_not_of(" \n\t");
-
 	if (First == (*input).npos)
 		return (std::cout<<"❌ error syntax ❌"<<std::endl, 1);
 	*input = (*input).substr(First, (Last - First + 1));
@@ -44,7 +52,7 @@ std::string	GetData(std::string msg)
 		std::cout<< msg;
 		if (!std::getline(std::cin, input))
 			break;
-		if (checkData(&input))
+		if ((!msg.compare("Enter Phone Number :") && checkData(&input, true)) || (checkData(&input , false)))
 			continue;
 		break;
 	}
@@ -75,7 +83,7 @@ void PhoneBook::AddContact()
 static void	PrintLin(std::string data)
 {
 	if (data.length() > 10)
-		std::cout<< std::setw(9) << data.substr(0, 9) << ".|";
+		std::cout<< data.substr(0, 9) << ".|";
 	else
 		std::cout<< std::setw(10) << data << "|";
 }
@@ -115,7 +123,7 @@ void	PhoneBook::SerchContact()
 			if (!std::getline(std::cin, input))
 				return ;
 			i = std::atoi(input.data());
-			if (i - 1 > IndexContact || i - 1 < 0) //my arr start from 0 and the index printed start from 1		
+			if (i - 1 > IndexContact || i - 1 < 0 || input.size() > 1) //my arr start from 0 and the index printed start from 1		
 				std::cout<< "❌**** Wrong Index *****❌" << std::endl;
 			else 
 				break;	
