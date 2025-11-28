@@ -123,10 +123,10 @@ void	PhoneBook::SerchContact()
 			if (!std::getline(std::cin, input))
 				return ;
 			i = std::atoi(input.data());
-			if (i - 1 > IndexContact || i - 1 < 0 || input.size() > 1) //my arr start from 0 and the index printed start from 1		
+			if (i - 1 > IndexContact || i - 1 < 0 || input.size() > 1) //my arr start from 0 and the index printed start from 1;
 				std::cout<< "❌**** Wrong Index *****❌" << std::endl;
 			else 
-				break;	
+				break;
 		}
 		std::cout<< "🔘 First Name : " << Contacs[i - 1].GetFirstName()<<std::endl;
 		std::cout<< "🔘 Last Name : " << Contacs[i - 1].GetLastName()<<std::endl;
@@ -134,5 +134,4 @@ void	PhoneBook::SerchContact()
 		std::cout<< "🔘 Phone Number : " << Contacs[i - 1].GetPhoneNumber() <<std::endl;
 		std::cout<< "🔘 Darke Secret : " << Contacs[i - 1].GetDarkestSecret() <<std::endl;
 	}
-
 }
