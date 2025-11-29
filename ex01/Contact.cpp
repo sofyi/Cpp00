@@ -6,12 +6,12 @@
 /*   By: slamhaou <slamhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 18:24:24 by slamhaou          #+#    #+#             */
-/*   Updated: 2025/11/20 14:06:32 by slamhaou         ###   ########.fr       */
+/*   Updated: 2025/11/29 10:40:05 by slamhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
-#include "../includs/Contact.hpp"
+#include "Contact.hpp"
 
 void	Contact::SetFirstName(std::string firstname) 
 {

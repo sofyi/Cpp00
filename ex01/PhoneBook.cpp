@@ -6,11 +6,11 @@
 /*   By: slamhaou <slamhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 19:17:50 by slamhaou          #+#    #+#             */
-/*   Updated: 2025/11/22 18:24:05 by slamhaou         ###   ########.fr       */
+/*   Updated: 2025/11/29 11:49:52 by slamhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includs/PhoneBook.hpp"
+#include "PhoneBook.hpp"
 
 PhoneBook::PhoneBook()
 {
@@ -27,11 +27,10 @@ int checkData(std::string *input, bool is_phon)
 	if (is_phon)
 	{
 		First = (*input).find_first_not_of("0123456789");
-		Last = (*input).find_last_not_of("023456789");
 		if (First != (*input).npos)
 			return (std::cout<<"❌ error just number ❌"<<std::endl, 1);
-		else if ((*input).size() > 12)
-			return (std::cout<<"❌ Error: You entered more than 12 numbers ❌"<<std::endl, 1);
+		else if ((*input).size() > 12 || (*input).size() < 12)
+			return (std::cout<<"❌ Error: You must entered 12 numbers ❌"<<std::endl, 1);
 	}
 	First = (*input).find_first_not_of(" \n\t");
 	Last = (*input).find_last_not_of(" \n\t");
